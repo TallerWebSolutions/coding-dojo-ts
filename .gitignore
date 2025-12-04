@@ -1,0 +1,29 @@
+# Compiled JavaScript and Source Maps
+*.js
+*.js.map
+dist/
+build/
+out/
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+
+# TypeScript cache
+.tsbuildinfo
+
+# IDE and OS specific files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+logs/
+*.log
+tmp/
+temp/
