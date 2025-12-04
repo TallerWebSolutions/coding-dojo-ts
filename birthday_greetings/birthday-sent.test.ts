@@ -18,7 +18,10 @@ const dataMock = [
 ]
 
 describe('birthday-sent', () => {
-  test('sents greetings to all my friends', () => {
-    expect(sendGreeting(dataMock[0].first_name)).toBe('Happy birthday, dear John!');
+  test('sents greetings to a friends', () => {
+    expect(sendGreeting(dataMock)).toBe(['Happy birthday, dear John!', 'Happy birthday, dear Mary!']);
   });
+
+
+
 });
