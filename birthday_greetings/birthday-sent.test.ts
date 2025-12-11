@@ -1,30 +1,32 @@
-import { describe, expect, test } from '@jest/globals';
-import { sendGreeting } from './birthday-sent';
-
+import { describe, expect, jest, test } from "@jest/globals";
+import { sendGreeting } from "./birthday-sent";
+import * as mail from "./birthday-mail";
 const dataMock = [
   {
     last_name: "Doe",
     first_name: "John",
     date_of_birth: "1982/10/08",
-    email: "john.doe@foobar.com"
+    email: "john.doe@foobar.com",
   },
   {
     last_name: "Ann",
     first_name: "Mary",
     date_of_birth: "1975/09/11",
-    email: "mary.ann@foobar.com"
-  }
-]
+    email: "mary.ann@foobar.com",
+  },
+];
 
 
 
-describe('birthday-sent', () => {
-  test('sents greetings to a friends', () => {
-    expect(sendGreeting(dataMock)).toEqual(['Happy birthday, dear John!', 'Happy birthday, dear Mary!']);
+describe("birthday-sent", () => {
+  test("sents greetings to a friends", () => {
+    expect(sendGreeting(dataMock)).toEqual(["Happy birthday, dear John!", "Happy birthday, dear Mary!"]);
   });
 
-  test('verify if sendMail has been called', () => {
+  test("verify if sendMail has been called", () => {
+    const spy = jest.spyOn(mail, "sendMail");
+
     sendGreeting(dataMock);
-    expect(sendMail).toHaveBeenCalled();
-   })
+    expect(spy).toHaveBeenCalled();
+  });
 });

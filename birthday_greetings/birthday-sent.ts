@@ -1,3 +1,4 @@
+import { sendMail } from "./birthday-mail";
 
 export type friendType = {
   last_name: string;
@@ -7,9 +8,5 @@ export type friendType = {
 };
 
 export function sendGreeting( friends: friendType[] ) {
-  return friends.map(friend => `Happy birthday, dear ${friend.first_name}!`);
-}
-
-export function sendMail( email: string, message: string ) {
-
+  return friends.map(friend => sendMail(friend.email, `Happy birthday, dear ${friend.first_name}!`));
 }
