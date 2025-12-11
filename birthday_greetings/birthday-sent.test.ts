@@ -1,7 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
 import { sendGreeting } from './birthday-sent';
 
-
 const dataMock = [
   {
     last_name: "Doe",
@@ -17,11 +16,15 @@ const dataMock = [
   }
 ]
 
+
+
 describe('birthday-sent', () => {
   test('sents greetings to a friends', () => {
-    expect(sendGreeting(dataMock)).toBe(['Happy birthday, dear John!', 'Happy birthday, dear Mary!']);
+    expect(sendGreeting(dataMock)).toEqual(['Happy birthday, dear John!', 'Happy birthday, dear Mary!']);
   });
 
-
-
+  test('verify if sendMail has been called', () => {
+    sendGreeting(dataMock);
+    expect(sendMail).toHaveBeenCalled();
+   })
 });
